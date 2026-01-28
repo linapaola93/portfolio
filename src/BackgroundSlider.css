@@ -1,0 +1,58 @@
+/* BackgroundSlider.css */
+
+.background-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-slider__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 3.5s cubic-bezier(0.4, 0.0, 0.2, 1); /* Transición más suave y larga */
+  transform: scale(1.1); /* Efecto zoom sutil */
+  will-change: opacity; /* Optimización de rendimiento */
+}
+
+.background-slider__slide.active {
+  opacity: 0.6; /* Opacidad ligeramente aumentada */
+  animation: slowZoom 25s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.background-slider__slide.prev {
+  opacity: 0;
+  transition: opacity 3.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes slowZoom {
+  0%, 100% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+/* Overlay adicional para mejorar legibilidad */
+.background-slider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 27, 27, 0.2); /* Overlay reducido para mayor visibilidad */
+  pointer-events: none;
+  z-index: 1;
+}

@@ -1,0 +1,591 @@
+/* App.css - Estilos responsive para el portafolio */
+
+/* Global Background - Todo negro */
+html,
+body,
+#root {
+  background-color: #191b1b !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Header responsive */
+.app-header {
+  padding: 4rem 1rem 2rem 1rem;
+  background: #131313;
+  text-align: center;
+}
+
+.app-header img {
+  border-radius: 50%;
+  width: 130px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 16px #00c6ff30;
+}
+
+.app-header h1 {
+  font-weight: 700;
+  font-size: clamp(24px, 5vw, 36px);
+  margin: 0;
+}
+
+.app-header .subtitle {
+  color: #00c6ff;
+  font-size: clamp(14px, 3vw, 18px);
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
+}
+
+/* Navigation responsive */
+.app-nav {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.app-nav a {
+  color: #fff;
+  margin: 0.3rem 0.5rem;
+  font-weight: 700;
+  font-size: clamp(13px, 2.5vw, 16px);
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.app-nav a:hover,
+.app-nav a:active {
+  color: #00c6ff;
+  background: rgba(0, 198, 255, 0.1);
+}
+
+/* Video responsive */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #00c6ff20;
+}
+
+/* Footer responsive */
+.app-footer {
+  background: #131313;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #666;
+  font-size: clamp(13px, 2.5vw, 16px);
+  margin-top: 40px;
+}
+
+.app-footer .mobile-break {
+  display: none;
+}
+
+.app-footer a {
+  color: #00c6ff;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.app-footer a:hover {
+  opacity: 0.8;
+}
+
+/* Contact form responsive */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  margin: auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 1rem;
+  background: #222;
+  color: #fff;
+  font-size: clamp(14px, 2.5vw, 16px);
+  width: 100%;
+}
+
+.contact-form button {
+  background: #00c6ff;
+  color: #1b1b1b;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: clamp(14px, 2.5vw, 16px);
+  width: 100%;
+}
+
+.contact-form button:hover {
+  background: #0091bd;
+}
+
+.contact-form button:active {
+  transform: scale(0.98);
+}
+
+/* Tablets y móviles */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 3rem 1rem 1.5rem 1rem;
+  }
+
+  .app-header img {
+    width: 100px;
+  }
+
+  .app-nav {
+    gap: 0.3rem;
+  }
+
+  .app-nav a {
+    margin: 0.2rem 0.3rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 13px;
+  }
+
+  .video-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .app-header {
+    padding: 2rem 0.5rem 1rem 0.5rem;
+  }
+
+  .app-header img {
+    width: 80px;
+  }
+
+  .app-header .subtitle {
+    letter-spacing: 1px;
+  }
+
+  .app-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .app-nav a {
+    display: block;
+    width: auto;
+    min-width: 150px;
+    text-align: center;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .app-footer {
+    padding: 1.5rem 0.5rem;
+    line-height: 1.8;
+  }
+  
+  .app-footer .mobile-break {
+    display: block;
+    margin: 0.3rem 0;
+  }
+}
+
+/* Landscape móvil */
+@media (max-width: 896px) and (orientation: landscape) {
+  .app-header {
+    padding: 2rem 1rem 1rem 1rem;
+  }
+
+  .app-header img {
+    width: 80px;
+  }
+
+  .app-nav {
+    flex-direction: row;
+    gap: 0.3rem;
+  }
+}
+
+/* Ajuste de margin-top para compensar navbar completo */
+#sobremi {
+  margin-top: 100px !important;
+}
+
+@media (max-width: 1200px) {
+  #sobremi {
+    margin-top: 90px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  #sobremi {
+    margin-top: 85px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #sobremi {
+    margin-top: 80px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #sobremi {
+    margin-top: 72px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #sobremi {
+    margin-top: 68px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  #sobremi {
+    margin-top: 65px !important;
+  }
+}
+
+/* About Section Styles */
+.about-section {
+  position: relative; /* Para que el slider absoluto funcione */
+  padding: 5rem 0 4rem; /* Más padding superior para separar del navbar */
+  width: 100%; /* Ancho completo */
+  background: #191b1b;
+  overflow: hidden; /* Para contener el slider */
+}
+
+/* Portafolio Section */
+.portafolio-section {
+  padding: 6rem 2rem;
+  background: #191b1b;
+}
+
+/* Todas las secciones con fondo negro */
+.section {
+  background: #191b1b;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(32px, 5vw, 48px);
+  color: #6dd5c3;
+  margin-bottom: 3rem;
+  position: relative;
+  font-weight: 700;
+}
+
+.about-container {
+  position: relative; /* Para estar sobre el slider */
+  z-index: 2; /* Encima del slider que tiene z-index: 0 */
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrado */
+  padding: 0 2rem; /* Padding lateral */
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  justify-self: center;
+  box-shadow: 0 8px 32px rgba(109, 213, 195, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 48px rgba(109, 213, 195, 0.3);
+}
+
+.about-data {
+  color: #ddd;
+}
+
+.home-title {
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.home-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #6dd5c3;
+}
+
+.home-description-wrapper {
+  background: rgba(25, 27, 27, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(109, 213, 195, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  max-width: 450px;
+}
+
+.home-description {
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+.home-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.home-social-follow {
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #ddd;
+}
+
+.home-social-links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.home-social-links li {
+  list-style: none;
+}
+
+.home-social-links li a {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: block;
+  text-align: center;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  text-decoration: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(0deg, #2a2a2a, #3a3a3a);
+  transition: .5s;
+}
+
+.home-social-links li a:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+}
+
+.home-social-links li a .fab {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(0deg, #3a3a3a, #2a2a2a);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size: 24px;
+  color: #ddd;
+  transition: .5s;
+}
+
+/* Hover colors para cada red social */
+.home-social-links li:nth-child(1) a:hover .fab {
+  color: #3b5998; /* Facebook */
+}
+
+.home-social-links li:nth-child(2) a:hover .fab {
+  color: #1DA1F2; /* Twitter */
+}
+
+.home-social-links li:nth-child(3) a:hover .fab {
+  color: #1AB7EA; /* Vimeo */
+}
+
+.home-social-links li:nth-child(4) a:hover .fab {
+  color: #FF0000; /* YouTube */
+}
+
+.home-social-links li:nth-child(5) a:hover .fab {
+  color: #e4405f; /* Instagram */
+}
+
+/* Responsive About Section */
+@media (max-width: 991px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 2rem;
+  }
+
+  .about-img {
+    max-width: 400px;
+  }
+
+  .about-data {
+    text-align: center;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .home-description-wrapper {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.25rem;
+  }
+
+  .home-description {
+    text-align: center;
+    font-size: 0.938rem;
+  }
+
+  .home-social {
+    gap: 1.5rem;
+  }
+  
+  .home-social-links {
+    gap: 0.8rem;
+  }
+  
+  .home-social-links li a {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .home-social-links li a .fab {
+    line-height: calc(55px - 12px);
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 0 3rem;
+  }
+  
+  .about-container {
+    padding: 0 1.5rem;
+  }
+
+  .about-img {
+    max-width: 350px;
+  }
+
+  .home-description-wrapper {
+    padding: 1rem;
+  }
+
+  .home-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-social {
+    gap: 1.25rem;
+  }
+  
+  .home-social-links {
+    gap: 0.7rem;
+  }
+  
+  .home-social-links li a {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .home-social-links li a .fab {
+    line-height: calc(50px - 12px);
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    padding: 3rem 0 2rem;
+  }
+  
+  .about-container {
+    padding: 0 1rem;
+  }
+
+  .about-img {
+    max-width: 280px;
+  }
+
+  .home-description-wrapper {
+    padding: 1rem;
+  }
+
+  .home-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-social {
+    gap: 1rem;
+  }
+
+  .home-social-follow {
+    font-size: 14px;
+  }
+
+  .home-social-links {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .home-social-links li a {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .home-social-links li a .fab {
+    line-height: calc(48px - 12px);
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,327 @@
+/* CircularGallery.css */
+
+.gallery-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  min-height: 800px;
+  position: relative;
+}
+
+/* Camera Lens Structure */
+.camera-lens-outer {
+  width: 45rem;
+  height: 45rem;
+  border-radius: 50%;
+  background: linear-gradient(0deg, rgb(80, 80, 80), rgb(0, 0, 0));
+  border: 3px solid rgb(80, 80, 80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+}
+
+.camera-silver-ring {
+  width: 96%;
+  height: 96%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgb(200, 200, 200), rgb(100, 100, 100), rgb(200, 200, 200));
+  box-shadow: 1px 1px rgb(240, 240, 240) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-inner-housing {
+  width: 97%;
+  height: 97%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 70% 50%, rgb(80, 80, 80), rgb(40, 40, 40));
+  box-shadow: 2px 2px rgb(210, 220, 220), 0 6px rgb(40, 40, 40) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-ribbing-container {
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: rgb(40, 40, 40);
+  box-shadow: 0 4px 4px rgb(0, 0, 0, 0.4) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.camera-ribbing {
+  border: 1px solid rgb(10, 10, 10);
+  background: rgb(60, 60, 60);
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-aperture-housing {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgb(80, 80, 80);
+  box-shadow: 0 -10px 10px rgb(255, 255, 255, 0.1) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.camera-outer-lens {
+  width: 88%;
+  height: 88%;
+  border-radius: 50%;
+  background: linear-gradient(0deg, rgba(80, 200, 140, 0.15), rgba(120, 80, 200, 0.15)), 
+    radial-gradient(circle at 10% 10%, rgba(40, 220, 40, 0.6) 0%, rgba(80, 200, 140, 0.4) 10%, transparent 40%), 
+    radial-gradient(circle at 0% 40%, rgba(120, 80, 200, 0.6) 0%, rgba(120, 80, 200, 0.4) 10%, transparent 30%), 
+    radial-gradient(circle at 90% 90%, rgba(40, 100, 200, 0.3) 0%, rgba(40, 100, 200, 0.15) 10%, transparent 20%);
+  position: absolute;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.camera-shine {
+  position: absolute;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+  width: 14rem;
+  height: 8rem;
+  top: 3rem;
+  left: 2rem;
+  border-radius: 100% 100% 0 0;
+  transform: rotate(-40deg);
+  z-index: 101;
+  pointer-events: none;
+}
+
+.camera-shadow {
+  width: 36rem;
+  height: 20rem;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: -3rem;
+  z-index: -1;
+  border-radius: 100%;
+  filter: blur(50px);
+}
+
+/* Main Gallery (inside the lens) */
+.gallery {
+  --s: 100%;
+  --d: 35s;
+  
+  position: relative;
+  width: var(--s);
+  height: var(--s);
+  aspect-ratio: 1;
+  overflow: hidden;
+  padding: calc(var(--s) / 50);
+  border-radius: 50%;
+  clip-path: circle(49.5%);
+}
+
+.gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: inherit;
+  border-radius: inherit;
+  background: repeating-conic-gradient(
+    rgba(0, 198, 255, 0.3) 0deg 30deg,
+    rgba(0, 145, 189, 0.3) 30deg 60deg
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotateRing 20s infinite linear;
+  z-index: 5;
+}
+
+@keyframes rotateRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.gallery > img {
+  grid-area: 1/1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  margin: -10%;
+  object-fit: cover;
+  border-radius: inherit;
+  opacity: 0;
+  animation: fadeInOut var(--d) infinite ease-in-out;
+}
+
+/* Animation delays for each image (2 images) */
+.gallery > img:nth-child(1) { animation-delay: 0s; }
+.gallery > img:nth-child(2) { animation-delay: calc(-1/2 * var(--d)); }
+
+@keyframes fadeInOut {
+  0% { opacity: 1; }
+  45% { opacity: 1; }
+  50% { opacity: 0; }
+  95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Lens reflection effect inside gallery */
+.gallery::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 40%;
+  height: 30%;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%
+  );
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+  transform: rotate(-25deg);
+}
+
+/* Additional lens effects */
+.camera-aperture-housing::before {
+  content: "";
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(0, 0, 0, 0), 
+    rgba(0, 0, 0, 0), 
+    rgba(80, 180, 200, 0.3), 
+    rgba(100, 240, 100, 0.3), 
+    rgba(0, 0, 0, 0), 
+    rgba(0, 0, 0, 0), 
+    rgba(0, 0, 0, 0), 
+    rgba(200, 200, 140, 0.2), 
+    rgba(200, 240, 100, 0.1), 
+    rgba(0, 0, 0, 0), 
+    rgba(0, 0, 0, 0)
+  ),
+  radial-gradient(circle at 10% 10%, rgba(255, 220, 220, 0.4) 0%, rgba(220, 120, 100, 0.3) 20%, transparent 40%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .camera-lens-outer {
+    width: 38rem;
+    height: 38rem;
+  }
+  
+  .camera-shadow {
+    width: 30rem;
+    height: 16rem;
+  }
+  
+  .camera-shine {
+    width: 12rem;
+    height: 7rem;
+    top: 2.5rem;
+    left: 1.5rem;
+  }
+  
+  .gallery-wrapper {
+    min-height: 700px;
+  }
+}
+
+@media (max-width: 768px) {
+  .camera-lens-outer {
+    width: 28rem;
+    height: 28rem;
+  }
+  
+  .camera-shadow {
+    width: 22rem;
+    height: 12rem;
+  }
+  
+  .camera-shine {
+    width: 8rem;
+    height: 5rem;
+    top: 2rem;
+    left: 1rem;
+  }
+  
+  .gallery-wrapper {
+    padding: 3rem 1rem;
+    min-height: 550px;
+  }
+}
+
+@media (max-width: 480px) {
+  .camera-lens-outer {
+    width: 22rem;
+    height: 22rem;
+  }
+  
+  .gallery-wrapper {
+    padding: 2rem 0.5rem;
+    min-height: 480px;
+  }
+  
+  .camera-shadow {
+    width: 18rem;
+    height: 10rem;
+    bottom: -2rem;
+  }
+  
+  .camera-shine {
+    width: 6rem;
+    height: 4rem;
+    top: 1.5rem;
+    left: 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .camera-lens-outer {
+    width: 20rem;
+    height: 20rem;
+  }
+  
+  .camera-shadow {
+    width: 16rem;
+    height: 9rem;
+  }
+  
+  .camera-shine {
+    width: 5.5rem;
+    height: 3.5rem;
+    top: 1.3rem;
+    left: 0.7rem;
+  }
+  
+  .gallery-wrapper {
+    min-height: 420px;
+  }
+}
